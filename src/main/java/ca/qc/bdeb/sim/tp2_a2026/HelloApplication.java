@@ -3,6 +3,7 @@ package ca.qc.bdeb.sim.tp2_a2026;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
