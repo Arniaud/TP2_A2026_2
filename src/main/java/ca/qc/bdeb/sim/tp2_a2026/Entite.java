@@ -8,8 +8,12 @@ import javafx.scene.paint.Color;
 
 public class Entite {
 
-    protected double x, y, largeur, longueur;
+    protected double x, y, largeur, hauteur;
     protected Image image;
+
+
+    protected Entite(double x, double y, double largeur, double hauteur)
+
 
 
 }
