@@ -22,6 +22,18 @@ public class Entite {
         this.imageActuelle = ImageJeu.chargement(cheminFichier);
     }
 
+   //ajouter une methoxe pour redessiner et pour les collisions
+    public void redessiner(GraphicsContext context, double xCamera){
+        if (imageActuelle != null){
+            context.drawImage(imageActuelle, x-xCamera, y, largeur, hauteur);
+        } else {
+            // code pour si il y a pas d'image
+        }
+    }
+
+
+    // methode pour trouver le centre si nécessaire
+
 
 
 }
