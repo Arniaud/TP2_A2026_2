@@ -12,7 +12,14 @@ public class Entite {
     protected Image image;
 
 
-    protected Entite(double x, double y, double largeur, double hauteur)
+    // ajouter le chemin fichier quand on va s'en occuper
+    // création squelette classe pour avancer
+    protected Entite(double x, double y, double largeur, double hauteur){
+        this.x=x;
+        this.y=y;
+        this.largeur=largeur;
+        this.hauteur=hauteur;
+    }
 
 
 
