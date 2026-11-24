@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 
-public class Entite {
+public abstract class Entite {
 
     protected double x, y, largeur, hauteur;
     protected Image imageActuelle;
@@ -22,16 +22,30 @@ public class Entite {
         this.imageActuelle = ImageJeu.chargement(cheminFichier);
     }
 
-   //ajouter une methoxe pour redessiner et pour les collisions
+    protected Entite() {
+    }
+
+    //ajouter une methoxe pour redessiner et pour les collisions
     public void redessiner(GraphicsContext context, double xCamera){
         if (imageActuelle != null){
             context.drawImage(imageActuelle, x-xCamera, y, largeur, hauteur);
         } else {
-            // code pour si il y a pas d'image
+          context.setFill(Color.MAGENTA);
+          context.fillRect(x-xCamera, y, largeur, hauteur);
         }
     }
-
-
+public double xcentre(){
+        return x+ largeur/2;
+}
+public double ycentre(){
+        return y+ hauteur/2;
+    }
+public double getX(){
+        return x;
+}
+public double getY(){
+        return y;
+}
     // methode pour trouver le centre si nécessaire
 
 
