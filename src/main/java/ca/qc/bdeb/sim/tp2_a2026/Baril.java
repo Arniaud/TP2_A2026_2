@@ -1,5 +1,5 @@
-import ca.qc.bdeb.sim.tp2_a2026.Entite;
-import javafx.scene.canvas.GraphicsContext;
+package ca.qc.bdeb.sim.tp2_a2026;
+
 import javafx.scene.image.Image;
 
 public class Baril extends Entite {

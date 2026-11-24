@@ -1,4 +1,4 @@
-import ca.qc.bdeb.sim.tp2_a2026.Entite;
+package ca.qc.bdeb.sim.tp2_a2026;
 
 public abstract class Projectile  extends Entite {
     protected double vx, vy;
