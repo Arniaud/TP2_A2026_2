@@ -22,8 +22,6 @@ public abstract class Entite {
         this.imageActuelle = ImageJeu.chargement(cheminFichier);
     }
 
-    protected Entite() {
-    }
 
     //ajouter une methoxe pour redessiner et pour les collisions
     public void redessiner(GraphicsContext context, double xCamera){
@@ -46,7 +44,7 @@ public double getX(){
 public double getY(){
         return y;
 }
-    // methode pour trouver le centre si nécessaire
+
 
 
 
