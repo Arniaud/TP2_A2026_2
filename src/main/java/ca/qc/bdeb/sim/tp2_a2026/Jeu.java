@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Jeu {
-public static final int Largeyr = 900;
+public static final int Largeur = 900;
 public static final int Hauteur = 520;
 private AnimationTimer timer;
 private long dernierTemps;

@@ -26,6 +26,12 @@ public abstract class ObjetProjectile extends Entite {
     }
 
 
+    public boolean dansFrame (){
+        boolean visibilite;
+        visibilite = x < Jeu.Largeur + 100 && x + largeur > -100 && y < Jeu.Hauteur + 100 && y + hauteur > -100;
+        return visibilite;
+    }
+
     // a faire: methode pour trouver si oui ou non le projectile est dans le frame
 
 
