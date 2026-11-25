@@ -18,10 +18,15 @@ public abstract class ObjetProjectile extends Entite {
 
 
     // méthode mère vide
-    public abstract void rafraichir(double dt, ImageJeu jeu);
+    public abstract void rafraichir(double dt, Jeu jeu);
+
+    protected void deplacer(double dt){
+        x = x + vx*dt;
+        y = y + vy*dt;
+    }
 
 
-
+    // a faire: methode pour trouver si oui ou non le projectile est dans le frame
 
 
 }
