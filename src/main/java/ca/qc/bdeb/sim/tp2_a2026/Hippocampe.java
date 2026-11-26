@@ -32,6 +32,8 @@ public class Hippocampe extends ObjetProjectile{
 
     @Override
     public void rafraichir(double dt, Jeu jeu) {
-
+        tempsCreation = tempsCreation + dt;
+        x = xInitial + vx*tempsCreation;
+        y = yInitial + grandeurVague*Math.sin((2*Math.PI*tempsCreation/tempsPhase) + phase) - hauteur/2;
     }
 }
