@@ -23,8 +23,7 @@ private GraphicsContext graph;
 private int niveau =1;
 private String typeProjectile = "Etoile";
 private  Gontrand gontrand;
-private final Camera camera = new Camera() {
-}
+private final Camera camera = new Camera();
 
    public Jeu(Runnable retourAcceuil) {
        this.retourAcceuil = retourAcceuil;
@@ -39,6 +38,5 @@ private final Camera camera = new Camera() {
          typeProjectile = "Etoile";
      }
      gontrand = new Gontrand();
-     camer
  }
 }
