@@ -1,7 +1,6 @@
 package ca.qc.bdeb.sim.tp2_a2026;
 
 import javafx.animation.AnimationTimer;
-import javafx.scene.Camera;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
@@ -23,8 +22,11 @@ private GraphicsContext graph;
 private int niveau =1;
 private String typeProjectile = "Etoile";
 private  Gontrand gontrand;
-private final Camera camera = new Camera() {
-}
+private final Camera camera = new Camera();
+private double niveauTemps;
+private double poissonTemps;
+private double tirTemps;
+private double debutNiveauTemps = 4;
 
    public Jeu(Runnable retourAcceuil) {
        this.retourAcceuil = retourAcceuil;
@@ -39,6 +41,11 @@ private final Camera camera = new Camera() {
          typeProjectile = "Etoile";
      }
      gontrand = new Gontrand();
-     camer
+     camera.reinitialiser();
+     niveauTemps = 0;
+     poissonTemps =0;
+     tirTemps = 0;
+     debutNiveauTemps = 4;
+//je vais le faire arn
  }
 }
