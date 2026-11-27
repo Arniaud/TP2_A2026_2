@@ -37,6 +37,9 @@ private final ArrayList<ObjetProjectile> projectiles = new ArrayList<>();
        this.canvas = canvas;
        this.graph = canvas.getGraphicsContext2D();
    }
+
+
+
  private void nouveauNiveau(boolean nouvellePartie) {
      if (nouvellePartie) {
          niveau = 1;
