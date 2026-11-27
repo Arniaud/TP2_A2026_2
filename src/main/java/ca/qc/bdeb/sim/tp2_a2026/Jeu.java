@@ -27,6 +27,8 @@ private double niveauTemps;
 private double poissonTemps;
 private double tirTemps;
 private double debutNiveauTemps = 4;
+private final ArrayList<Poisson> poissons = new ArrayList<>();
+private final ArrayList<ObjetProjectile> projectiles = new ArrayList<>();
 
    public Jeu(Runnable retourAcceuil) {
        this.retourAcceuil = retourAcceuil;
@@ -40,6 +42,8 @@ private double debutNiveauTemps = 4;
          niveau = 1;
          typeProjectile = "Etoile";
      }
+     poissons.clear();
+
      gontrand = new Gontrand();
      camera.reinitialiser();
      niveauTemps = 0;
