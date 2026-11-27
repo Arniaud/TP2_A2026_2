@@ -18,10 +18,6 @@ private final Set<KeyCode> touches = new HashSet<>();
 private  Baril baril;
 private final Runnable retourAcceuil;
 private Canvas canvas;
-
-
-
-
 private GraphicsContext graph;
 private int niveau =1;
 private String typeProjectile = "Etoile";
@@ -39,7 +35,6 @@ private double debutNiveauTemps = 4;
        this.canvas = canvas;
        this.graph = canvas.getGraphicsContext2D();
    }
-
  private void nouveauNiveau(boolean nouvellePartie) {
      if (nouvellePartie) {
          niveau = 1;
