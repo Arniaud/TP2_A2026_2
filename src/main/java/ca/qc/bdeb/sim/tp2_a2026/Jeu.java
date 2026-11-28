@@ -175,6 +175,6 @@ private void tirer(){
        }
 
 
-
+// aussi on a tellemtn de warning faudrait regarder ca mais le code fonction ;)
 }
 
