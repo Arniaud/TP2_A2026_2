@@ -4,9 +4,11 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class Jeu {
@@ -27,10 +29,14 @@ private double niveauTemps;
 private double poissonTemps;
 private double tirTemps;
 private double debutNiveauTemps = 4;
-/// commentaire prof rtest commit ...
-/// test 2232hfliquwfuioewf
-///test pour assurer
-/// ///fergergeg
+private Decor decor;
+private Color fond = Color.DARKBLUE;
+private final Random hasard = new Random();
+private final ArrayList<Poisson> poissons = new ArrayList<>();
+private final ArrayList<ObjetProjectile> projectiles = new ArrayList<>();
+private  boolean pause;
+private boolean debugProg;
+private boolean debugChamp;
 
    public Jeu(Runnable retourAcceuil) {
        this.retourAcceuil = retourAcceuil;
@@ -50,6 +56,57 @@ private double debutNiveauTemps = 4;
      poissonTemps =0;
      tirTemps = 0;
      debutNiveauTemps = 4;
-//je vais le faire arn
+     decor = new Decor();
+     baril = new Baril(900+hasard.nextDouble()*(Largeur-1800),Hauteur);
+     //je ne savais pas comment faire mais tu px changer au pire
+     fond = Color.hsb(190+hasard.nextDouble()*80, .84, 1.0);
  }
+
+ private void touchePressee(KeyCode code) {
+     if (code == KeyCode.ESCAPE) {
+         arreter();
+         retourAcceuil.run();
+         return;
+     }
+     if (code == KeyCode.P) {
+         if (!touches.contains(KeyCode.P)) {
+             pause = !pause;
+         }
+         if (code == KeyCode.D) {
+             debugProg = !debugProg;
+         }
+         if (code == KeyCode.F) {
+             debugChamp = !debugChamp;
+         }
+         if (code == KeyCode.Q) {
+             typeProjectile = "Etoile";
+         }
+         if (code == KeyCode.W) {
+             typeProjectile = "Hippo";
+         }
+         if (code == KeyCode.E) {
+             typeProjectile = "Sardine";
+         }
+         if (code == KeyCode.R) {
+             // g besoin de la classe gontrand completer svp
+         }
+         if (code == KeyCode.T) {
+             niveau++;
+             nouveauNiveau(false);
+
+         }
+     }
+     touches.add(code);
+ }
+
+
+
+
+
+   public void arreter(){
+       if (timer !=null) {
+           timer.stop();
+       }
+   }
+
 }
