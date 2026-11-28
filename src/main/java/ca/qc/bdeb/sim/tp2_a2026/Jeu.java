@@ -37,7 +37,11 @@ private final ArrayList<ObjetProjectile> projectiles = new ArrayList<>();
 private  boolean pause;
 private boolean debugProg;
 private boolean debugChamp;
-
+private boolean fin;
+private double tempsfin;
+private double tempsNiveau;
+private double tempsPoissons;
+private double tempsTir;
    public Jeu(Runnable retourAcceuil) {
        this.retourAcceuil = retourAcceuil;
    }
@@ -88,6 +92,13 @@ private boolean debugChamp;
              typeProjectile = "Sardine";
          }
          if (code == KeyCode.R) {
+
+
+
+
+
+
+
              // g besoin de la classe gontrand completer svp
          }
          if (code == KeyCode.T) {
@@ -98,15 +109,72 @@ private boolean debugChamp;
      }
      touches.add(code);
  }
-
-
-
-
-
+public void letGoTouche (KeyCode code) {
+       touches.remove(code);
+}
    public void arreter(){
        if (timer !=null) {
            timer.stop();
        }
    }
+private void miseAJour(double dt) {
+    if (pause) return;
+    if (fin) {
+        tempsfin += dt;
+        if (tempsfin >= 3) {
+            arreter();
+            retourAcceuil.run();
+        }
+        return;
+    }
+    tempsNiveau += dt;
+    if (debutNiveauTemps > 0) tempsNiveau -= dt;
+    else {
+        tempsPoissons += dt;
+        double intervalle = 0.75 + 1 / niveau;
+        if (tempsPoissons >= intervalle){
+            tempsPoissons -= intervalle;
+            creerGroupe();
+        }
+    }
+    boolean gauche = touches.contains(KeyCode.LEFT), droite = touches.contains(KeyCode.RIGHT);
+    boolean haut = touches.contains(KeyCode.UP), bas = touches.contains(KeyCode.DOWN);
+
+
+
+
+
+
+
+    /* appliquer a gontrand...... */
+    baril.update(tempsNiveau,Hauteur);
+    if(tempsTir >0 ){
+        tempsTir =- dt;
+    }
+    if (touches.contains(KeyCode.SPACE)&& tempsTir<= 0 && debutNiveauTemps <= 0){
+        tirer();
+        tempsTir =0.5;
+    }
+
+    // je vais terminer  cette methode tqt mais fait champ elec si tu px et debug si tu px sinon on fait debug a la fin
+}
+private void creerGroupe(){
+       int n=1+hasard.nextInt(5);
+       for (int i = 0; i<n; i++){
+           double y = 30+hasard.nextDouble()*(Hauteur-160);
+           poissons.add(new Poisson(camera.getX()+Largeur+hasard.nextInt(100),y,niveau));
+       }
+}
+private void tirer(){
+       double x = gontrand.xcentre(), y =gontrand.ycentre();
+       switch(typeProjectile) {
+           case "Hipo" -> TrioHippo.ajouter(projectiles, x, y);
+           case "Sardine" -> projectiles.add(new BoiteDeSardines(x, y));
+           default -> projectiles.add(new EtoileMer(x, y));
+       }
+       }
+
+
 
 }
+

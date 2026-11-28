@@ -6,7 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 import java.util.Random;
 
-
+// on pourra changer le nom de cette classe apres car c melangeant ngl, on le change a enemi non?
 public class Poisson extends Entite{
     private double vx;
     private double vy;
